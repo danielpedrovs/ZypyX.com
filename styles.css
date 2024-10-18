@@ -13,6 +13,22 @@
   }
 }
 
+/* Animação spinny - Versão padrão (sem prefixo) */
+@keyframes spinny {
+  0% {
+    transform: rotateZ(0deg);
+    border-radius: 0.3em;
+  }
+  50% {
+    border-radius: 1em;
+  }
+  100% {
+    transform: rotateZ(360deg);
+    border-radius: 0.3em;
+  }
+}
+
+/* Animação welcome - Webkit (opcional para navegadores antigos) */
 @-webkit-keyframes welcome {
   0% {
     margin: 0 0;
@@ -36,6 +52,32 @@
   100% {
     margin: 0 1.5em;
     -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    width: 3em;
+    height: 3em;
+  }
+}
+
+/* Animação welcome - Versão padrão (sem prefixo) */
+@keyframes welcome {
+  0% {
+    margin: 0 0;
+    transform: rotateY(0deg);
+    width: 2em;
+    height: 2em;
+  }
+  20% {
+    transform: rotateY(0deg);
+    width: 2em;
+    height: 2em;
+  }
+  80% {
+    transform: rotateY(180deg);
+    width: 3em;
+    height: 3em;
+  }
+  100% {
+    margin: 0 1.5em;
     transform: rotateY(180deg);
     width: 3em;
     height: 3em;
