@@ -1,4 +1,46 @@
 /* Transitions aren't quite as smooth on firefox */
+@-webkit-keyframes spinny {
+  0% {
+    transform: rotateZ(0deg);
+    border-radius: 0.3em;
+  }
+  50% {
+    border-radius: 1em;
+  }
+  100% {
+    transform: rotateZ(360deg);
+    border-radius: 0.3em;
+  }
+}
+
+@-webkit-keyframes welcome {
+  0% {
+    margin: 0 0;
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    width: 2em;
+    height: 2em;
+  }
+  20% {
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    width: 2em;
+    height: 2em;
+  }
+  80% {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    width: 3em;
+    height: 3em;
+  }
+  100% {
+    margin: 0 1.5em;
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    width: 3em;
+    height: 3em;
+  }
+}
 :root {
   --gradient: conic-gradient(
     from 240deg at 50% 50%,
@@ -53,15 +95,31 @@ body {
   left:0;
   width: 100%;
   height: 100%;
+  -webkit-object-fit: cover;
   object-fit: cover;
   z-index: -1;
+}
+#welcomeMessage figcaption h1:active {
+  -webkit-transform: scale(0.93);
+  transform: scale(0.93);
+  -webkit-transition: all 0.05s ease-in-out;
+  transition: all 0.05s ease-in-out;
+}
+
+body, html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -webkit-backface-visibility: hidden;
+  text-rendering: optimizeLegibility;
+  backface-visibility: hidden;
 }
 .vcontent{
 position:relative;
 z-index: 100;
 color: white;
 text-align: center;
-padding-top: 20%;
+padding-top: 15%;
 }
 
 input {
@@ -69,7 +127,8 @@ input {
 }
 
 #welcomeMessage {
-  font-size: 130%;
+  font-size: 90%;
+  margin-top: 5em;
 }
 
 #welcomeMessage
@@ -317,6 +376,7 @@ svg {
 
 #toggleOpen:checked
   ~ #welcomeMessage {
+    margin-top: 8em;
       font-size: 100%;    
 }
 
@@ -662,6 +722,7 @@ svg {
     overflow-x: hidden;
     overflow-y: auto;
     align-items: flex-start;
+    padding: 0 1em;
   }
   
   #welcomeMessage {
@@ -679,6 +740,11 @@ svg {
     figcaption
     h1 {
       flex-direction: column;
+  }
+
+  #welcomeMessage figcaption h1 {
+    flex-direction: column;
+    font-size: 1.2em; /* Ajuste do tamanho da fonte para h1 */
   }
   
   #welcomeMessage figcaption h1::before {
