@@ -45,6 +45,7 @@ nav {
  right:0;
  text-align: left;
  transition: left 0.3s ease;
+ z-index: 1000;
 
 }
 nav a{
@@ -67,7 +68,7 @@ header:hover nav{
   left: 0;
   width:100%;
   background-color: rgba(209, 60, 60, 0.8);
-  z-index: 10; /* Z-index maior para ficar acima da imagem */
+  z-index: 1000; /* Z-index maior para ficar acima da imagem */
   padding: 10px; /* Espaçamento interno do menu */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 
