@@ -283,7 +283,7 @@ body {
 }
 .imagem-container {
   flex:1;
-  background-image: url('/media/fall-back2.jpeg');
+  background-image: url('media/fall-back2.jpeg');
   background-size: cover;
   background-position: center;
   max-width: 100%; /* A imagem não excederá a largura do contêiner */
