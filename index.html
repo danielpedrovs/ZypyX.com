@@ -14,9 +14,8 @@
 </head>
 
 <body>
-  <video class="video-background" autoplay muted loop playsinline>
-    <img src="media/fall-back.jpeg" alt="fall-backimage">
-    <source src="media/video_nature.mp4" type="video/mp4">
+  <video autoplay muted loop class="video-background">
+    <source src="/media/video_nature.mp4" type="video/mp4">
     Seu navegador não suporta o elemento de vídeo.
 </video>
 <input type="radio" name="toggle" id="toggleOpen" value="toggleOpen">
@@ -28,7 +27,7 @@
     <label for="toggleClose" title="Click to Close">✖</label>
     <b>
       w
-      <a href="javascript:void(0);" title="Go To Home">
+      <a href="/home.html" title="Go To Home">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
           <defs>
             <linearGradient id="svgGradient" x1="0" y1="0" x2="20" y2="0" gradientUnits="userSpaceOnUse">
@@ -107,6 +106,6 @@
 
 </body>
 
-<script src="script.js"></script>
+<script src="/script.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ffmpeg.js/4.3.0/ffmpeg.min.js"></script>
 </html>

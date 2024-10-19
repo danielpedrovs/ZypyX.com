@@ -13,22 +13,183 @@
   }
 }
 
-/* Animação spinny - Versão padrão (sem prefixo) */
-@keyframes spinny {
-  0% {
-    transform: rotateZ(0deg);
-    border-radius: 0.3em;
+.text-zypy{
+  padding: 0;
+  margin-right: 10px;
+  size-adjust: auto;
+
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 20;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+header {
+  padding: 10px;
+  position: relative;
+}
+
+nav {
+  display: none;
+  background-color: #051e81;
+  padding: 10px;
+  justify-content: space-around;
+  align-items:center;
+ position: absolute;
+ top: 0;
+ width:150px;
+ right:0;
+ text-align: left;
+ transition: left 0.3s ease;
+
+}
+nav a{
+  color:white;
+  padding:10px;
+  text-decoration: none;
+  display:block;
+  transition: background-color 0.3s ease;
+}
+nav a:hover{
+  background-color: #00cc66;
+}
+header:hover nav{
+  display:block;
+  left:0;
+}
+.menu{
+  position:absolute;
+  top:0;
+  left: 0;
+  width:100%;
+  background-color: rgba(209, 60, 60, 0.8);
+  z-index: 10; /* Z-index maior para ficar acima da imagem */
+  padding: 10px; /* Espaçamento interno do menu */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+}
+
+.menu-button {
+  text-align: center;
+  cursor: pointer;
+}
+
+.menu-button svg {
+  fill: white;
+  width: 50px;
+  height: 50px;
+}
+
+.menu-button:hover svg {
+  fill:grey;
+}
+.nav-area{
+  color:white;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 10px;
+  display:inline-block;
+
+}
+.menu-text {
+  color: white;
+  margin-top: 10px;
+  margin-right: 15px;
+  margin-left: 5px;
+  text-transform: uppercase;
+  align-self: center;
+  font-size: 14px;
+  white-space-collapse: 20px;
+}
+
+.menu-button:hover .menu-text {
+  color:goldenrod;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+}
+
+/* Estilo do footer */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+footer .footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Links no footer */
+footer .footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+footer .footer-links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer .footer-links a:hover {
+  color: #00cc66;
+}
+
+/* Ícones de redes sociais */
+footer .social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+footer .social-icons a {
+  color: white;
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+footer .social-icons a:hover {
+  color: #00cc66;
+}
+@media (max-width: 768px) {
+  footer .footer-container {
+    flex-direction: column;
+    text-align: center;
   }
-  50% {
-    border-radius: 1em;
-  }
-  100% {
-    transform: rotateZ(360deg);
-    border-radius: 0.3em;
+
+  footer .footer-links,
+  footer .social-icons {
+    justify-content: center;
   }
 }
 
-/* Animação welcome - Webkit (opcional para navegadores antigos) */
 @-webkit-keyframes welcome {
   0% {
     margin: 0 0;
@@ -57,32 +218,15 @@
     height: 3em;
   }
 }
-
-/* Animação welcome - Versão padrão (sem prefixo) */
-@keyframes welcome {
-  0% {
-    margin: 0 0;
-    transform: rotateY(0deg);
-    width: 2em;
-    height: 2em;
-  }
-  20% {
-    transform: rotateY(0deg);
-    width: 2em;
-    height: 2em;
-  }
-  80% {
-    transform: rotateY(180deg);
-    width: 3em;
-    height: 3em;
-  }
-  100% {
-    margin: 0 1.5em;
-    transform: rotateY(180deg);
-    width: 3em;
-    height: 3em;
-  }
+.fall-back2{
+  position: fixed;
+  top:0;
+  left: 1px;;
+  width: 20%;
+  height: 20%;
+ 
 }
+
 :root {
   --gradient: conic-gradient(
     from 240deg at 50% 50%,
@@ -122,14 +266,38 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   width: 100%;
   height: 100vh;
-  overflow: hidden;
   margin: 0;
+  padding: 0;
   font-size: 100%;
-  background: black;
+  background-color: #222;
   color: white;
   backface-visibility: hidden;
+}
+.container {
+  display: flex; /* Flexbox para organizar imagem e texto lado a lado */
+  width: 100%; 
+  height: 100vh; 
+}
+.imagem-container {
+  flex:1;
+  background-image: url('/media/fall-back2.jpeg');
+  background-size: cover;
+  background-position: center;
+  max-width: 100%; /* A imagem não excederá a largura do contêiner */
+  height: auto;
+  display:block;
+   /* Mantém a proporção da imagem */
+}
+.text-container {
+  flex: 1; /* Ocupa 50% do espaço */
+  display: flex; /* Centraliza o conteúdo */
+  justify-content: center; 
+  align-items: center; 
+  padding: 20px; 
+  background-color: rgba(34, 34, 34, 0.8); /* Cor de fundo com transparência */
 }
 .video-background{
   position: fixed;
@@ -138,7 +306,6 @@ body {
   width: 100%;
   height: 100%;
   -webkit-object-fit: cover;
-  background: url('media/fall-back.jpeg') no-repeat center center; 
   object-fit: cover;
   z-index: -1;
 }
