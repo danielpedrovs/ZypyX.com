@@ -104,20 +104,27 @@
     </div>
 </footer>
 <script>
-    function toggleMenu() {
-      const menu = document.getElementById('navMenu');
-      menu.classList.toggle('open');
-      if (menu.classList.contains('open')) {
-    // Remover a classe de abertura e garantir o redesenho no iOS
-    menu.classList.remove('open');
-    menu.style.display = 'block'; // Força um redesenho ao definir o display como block momentaneamente
-    setTimeout(() => {
-      menu.style.display = ''; // Volta ao estilo original após o redesenho
-    }, 10); 
-  } else {
-    menu.classList.add('open');
+  document.addEventListener("DOMContentLoaded", function() {
+  const header = document.querySelector('header');
+  const menu = document.getElementById('navMenu');
+  
+  function toggleMenu() {
+    menu.classList.toggle('open');
   }
+
+  function closeMenuIfTouchedOutside(event) {
+    // Verifica se o toque foi fora do menu e do botão de toggle
+    if (!menu.contains(event.target) && !header.contains(event.target)) {
+      menu.classList.remove('open');
     }
+  }
+
+  // Captura evento de toque (touchstart) para dispositivos móveis
+  document.addEventListener('touchstart', closeMenuIfTouchedOutside);
+
+  // Captura evento de clique para desktops e outros dispositivos
+  document.addEventListener('click', closeMenuIfTouchedOutside);
+});
   </script>
   </body>
 
