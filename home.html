@@ -12,7 +12,7 @@
 </head>
 
 <header>
-    <button class="menu-toggle" onclick="toggleMenu()">Menu</button>
+    <button class="menu-toggle" onclick="toggleMenu()">&#9776;Menu</button>
   
     <nav id="navMenu"> 
         <a href="#about">About Us</a>
@@ -57,16 +57,23 @@
 </header>
 
 <body>
+    
     <div class="container">
-        <div class="imagem-container"></div> <!-- Contêiner para a imagem -->
+        <div class="imagem-container"></div>
         <div class="text-container">
             <h1 class="text-zypyx">ZYPYX - INOVAÇÃO E SUSTENTABILIDADE</h1>
             <p>O mundo está mudando, com muito mais tecnologia e inovação. Nós da ZYPYX, temos uma missão de buscar um mundo muito mais sustentável.</p>
         </div>
     </div>
 
-    <!-- Conteúdo da página principal -->
-</body>
+    <div class="container-Bu"> 
+        <a href="index.html"> 
+          <button>Welcome Page</button>
+        </a>
+      </div>
+
+    
+
 
 <footer>
     <div class="footer-container">
@@ -76,6 +83,8 @@
             <a href="#privacy">Privacy Policy</a>
             <a href="#terms">Terms of Use</a>
         </div>
+
+       
   
         <div class="social-icons">
             <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -90,8 +99,16 @@
                 <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2" fill="none"></circle>
                 <text x="12" y="16" text-anchor="middle" font-size="12" fill="white">I</text>
             </svg></a>
+           
         </div>
     </div>
 </footer>
+<script>
+    function toggleMenu() {
+      const menu = document.getElementById('navMenu');
+      menu.classList.toggle('open');
+    }
+  </script>
+  </body>
 
 </html>
