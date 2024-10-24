@@ -107,6 +107,16 @@
     function toggleMenu() {
       const menu = document.getElementById('navMenu');
       menu.classList.toggle('open');
+      if (menu.classList.contains('open')) {
+    // Remover a classe de abertura e garantir o redesenho no iOS
+    menu.classList.remove('open');
+    menu.style.display = 'block'; // Força um redesenho ao definir o display como block momentaneamente
+    setTimeout(() => {
+      menu.style.display = ''; // Volta ao estilo original após o redesenho
+    }, 10); 
+  } else {
+    menu.classList.add('open');
+  }
     }
   </script>
   </body>
